@@ -2,7 +2,7 @@ node_modules/
 .env
 generated/
 build/
-subgraph.yaml
+# subgraph.yaml 
 !templates/*
 # abis/
 .vscode/*

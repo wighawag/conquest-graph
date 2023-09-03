@@ -1,4 +1,4 @@
-specVersion: 0.0.3
+specVersion: 0.0.4
 description: conquest.eth
 schema:
   file: ./schema.graphql
@@ -12,7 +12,7 @@ dataSources:
       startBlock: 21704746
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
         - Space
@@ -64,7 +64,7 @@ dataSources:
       startBlock: 21704722
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
         - Owner
@@ -85,7 +85,7 @@ dataSources:
       startBlock: 21704726
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
         - Owner
@@ -106,7 +106,7 @@ dataSources:
       startBlock: 21704728
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
         - Owner

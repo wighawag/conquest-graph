@@ -1,0 +1,16 @@
+{
+  "name": "conquest-graph",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "graph": "graph"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.56.0"
+  }
+}

@@ -1,7 +1,7 @@
 type Alliance @entity {
   id: ID!
   frontendURI: String
-  members: [AllianceOwnerPair!]! @derivedFrom(field: "alliance")
+  members: [AllianceOwnerPair!] @derivedFrom(field: "alliance")
 }
 
 type AllianceOwnerPair @entity {
@@ -12,11 +12,11 @@ type AllianceOwnerPair @entity {
 
 type Owner @entity {
   id: ID!
-  planets: [Planet!]! @derivedFrom(field: "owner")
-  fleets: [Fleet!]! @derivedFrom(field: "owner")
-  events: [OwnerEvent!]! @derivedFrom(field: "owner")
-  rewards: [Reward!]! @derivedFrom(field: "owner")
-  alliances: [AllianceOwnerPair!]! @derivedFrom(field: "owner")
+  planets: [Planet!] @derivedFrom(field: "owner")
+  fleets: [Fleet!] @derivedFrom(field: "owner")
+  events: [OwnerEvent!] @derivedFrom(field: "owner")
+  rewards: [Reward!] @derivedFrom(field: "owner")
+  alliances: [AllianceOwnerPair!] @derivedFrom(field: "owner")
   totalStaked: BigInt!
   currentStake: BigInt!
   totalCollected: BigInt!
@@ -109,9 +109,9 @@ type Planet @entity {
   exitTime: BigInt!
   reward: BigInt!
   rewardGiver: String!
-  departedFleets: [Fleet!]! @derivedFrom(field: "from")
-  events: [PlanetEvent!]! @derivedFrom(field: "planet")
-  rewards: [Reward!]! @derivedFrom(field: "planet")
+  departedFleets: [Fleet!] @derivedFrom(field: "from")
+  events: [PlanetEvent!] @derivedFrom(field: "planet")
+  rewards: [Reward!] @derivedFrom(field: "planet")
   flagTime: BigInt!
 
   stakeDeposited: BigInt!
@@ -146,7 +146,7 @@ type Fleet @entity {
   inFlightFleetLoss: BigInt
   inFlightPlanetLoss: BigInt
   won: Boolean
-  events: [FleetEvent!]! @derivedFrom(field: "fleet")
+  events: [FleetEvent!] @derivedFrom(field: "fleet")
 }
 
 type Transaction @entity {

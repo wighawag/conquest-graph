@@ -16,7 +16,6 @@
   },
   "scripts": {
     "graph": "graph",
-    "prepare": "node .setup.js",
     "codegen": "rimraf generated && graph codegen",
     "build": "graph build",
     "generate": "node scripts/generate.js",

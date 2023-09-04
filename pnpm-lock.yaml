@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@graphprotocol/graph-cli':
-    specifier: ^0.56.0
-    version: 0.56.0(@types/node@20.5.9)(node-fetch@3.3.2)(typescript@5.2.2)
+    specifier: ^0.51.2
+    version: 0.51.2(@types/node@20.5.9)(node-fetch@3.3.2)(typescript@5.2.2)
   '@graphprotocol/graph-ts':
     specifier: ^0.31.0
     version: 0.31.0
@@ -239,8 +239,8 @@ packages:
       js-yaml: 4.1.0
     dev: true
 
-  /@graphprotocol/graph-cli@0.56.0(@types/node@20.5.9)(node-fetch@3.3.2)(typescript@5.2.2):
-    resolution: {integrity: sha512-bOVtYLDLJpyqjPv9RX8DwRFePOiIlzWZhQGuznb6lY7Uk+uvjc0JSBsgPOAWjwkAI+3U1Ux7GPVwgYSLIOBXoQ==}
+  /@graphprotocol/graph-cli@0.51.2(@types/node@20.5.9)(node-fetch@3.3.2)(typescript@5.2.2):
+    resolution: {integrity: sha512-C+h6HLeYhsNFpV3TmVz1j6MMYA0K81+iInysFdnqX2J1ZwH7ldiHZyJuNq4ajxZlXhBL7+UV9zx7id6OSaj6GA==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
@@ -513,19 +513,19 @@ packages:
   /@types/concat-stream@1.6.1:
     resolution: {integrity: sha512-eHE4cQPoj6ngxBZMvVf6Hw7Mh4jMW4U9lpGmS5GBPB9RYxlFg+CHaVN7ErNY4W9XfLIEn20b4VDYaIrbq0q4uA==}
     dependencies:
-      '@types/node': 8.10.66
+      '@types/node': 20.5.9
     dev: true
 
   /@types/connect@3.4.35:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
     dependencies:
-      '@types/node': 12.20.55
+      '@types/node': 20.5.9
     dev: true
 
   /@types/form-data@0.0.33:
     resolution: {integrity: sha512-8BSvG1kGm83cyJITQMZSulnl6QV8jqAGreJsc5tPu1Jq0vTSOiY/k24Wx82JRpWwZSqrala6sd5rWi6aNXvqcw==}
     dependencies:
-      '@types/node': 8.10.66
+      '@types/node': 20.5.9
     dev: true
 
   /@types/long@4.0.2:
@@ -575,7 +575,7 @@ packages:
   /@types/ws@7.4.7:
     resolution: {integrity: sha512-JQbbmxZTZehdc2iszGKs5oC3NFnjeay7mtAWrdt7qNtAVK0g19muApzAy4bm9byz79xa2ZnO/BOBC2R8RC5Lww==}
     dependencies:
-      '@types/node': 12.20.55
+      '@types/node': 20.5.9
     dev: true
 
   /@whatwg-node/events@0.0.3:

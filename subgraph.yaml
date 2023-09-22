@@ -5,7 +5,7 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: OuterSpace
-    network: xdai
+    network: gnosis
     source:
       address: '0x7ed5118E042F22DA546C9aaA9540D515A6F776E9'
       abi: OuterSpaceContract
@@ -57,7 +57,7 @@ dataSources:
       file: ./src/outerspace.ts
   - kind: ethereum/contract
     name: PlayToken
-    network: xdai
+    network: gnosis
     source:
       address: '0x1874F6326eEbcCe664410a93a5217741a977D14A'
       abi: PlayToken_Contract
@@ -78,7 +78,7 @@ dataSources:
       file: ./src/play_token.ts
   - kind: ethereum/contract
     name: FreePlayToken
-    network: xdai
+    network: gnosis
     source:
       address: '0x8d82B1900bc77fACdf6f2209869E4f816E4fbcB2'
       abi: FreePlayToken_Contract
@@ -99,7 +99,7 @@ dataSources:
       file: ./src/free_play_token.ts
   - kind: ethereum/contract
     name: AllianceRegistry
-    network: xdai
+    network: gnosis
     source:
       address: '0xE345AfBc1b76AE8BA45dAE732F7CD9bdf197ccEe'
       abi: AllianceRegistry_Contract

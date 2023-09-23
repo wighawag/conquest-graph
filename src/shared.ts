@@ -27,6 +27,7 @@ export function handleSpace(): Space {
 
     space.totalStaked = ZERO;
     space.currentStake = ZERO;
+    space.currentStakeMinusExiting = ZERO;
 
     space.numPlanetsStaked = ZERO;
     space.numPlanetsStakedOnce = ZERO;

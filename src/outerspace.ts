@@ -138,7 +138,7 @@ function getOrCreatePlanet(id: string): Planet {
   entity.zoneX = signX.equals(BigInt.fromI32(1)) ? centerZoneX : centerZoneX.neg();
   entity.zoneY = signY.equals(BigInt.fromI32(1)) ? centerZoneY : centerZoneY.neg();
 
-  log.error('zone: {}', [entity.zone]);
+  // log.error('zone: {}', [entity.zone]);
 
   // entity.zone =
   //   BigInt.fromI32(-2).toHex() +
@@ -170,7 +170,7 @@ export function handleInitialized(event: Initialized): void {
 export function handlePlanetStake(event: PlanetStake): void {
   let transactionId = updateChainAndReturnTransactionID(event);
   let id = toPlanetId(event.params.location);
-  log.error('id: {}', [id]);
+  // log.error('id: {}', [id]);
   let entity = getOrCreatePlanet(id);
   let owner = handleOwner(event.params.acquirer);
   owner.totalStaked = owner.totalStaked.plus(event.params.stake);
@@ -216,9 +216,11 @@ export function handlePlanetStake(event: PlanetStake): void {
   // space.stake_gas = space.stake_gas.plus(event.transaction.gasLimit); //gasLimit is not gasUsed
   space.stake_num = space.stake_num.plus(ONE);
   space.currentStake = space.currentStake.plus(event.params.stake);
+  space.currentStakeMinusExiting = space.currentStakeMinusExiting.plus(event.params.stake);
   space.totalStaked = space.totalStaked.plus(event.params.stake);
   space.numPlanetsStakedOnce = space.numPlanetsStakedOnce.plus(ONE);
   space.numPlanetsStaked = space.numPlanetsStaked.plus(ONE);
+  space.numPlanetsStakedMinusExiting = space.numPlanetsStakedMinusExiting.plus(ONE);
   space.save();
 }
 
@@ -286,6 +288,7 @@ export function handleFleetArrived(event: FleetArrived): void {
   let fleetOwner = handleOwner(event.params.fleetOwner);
   let destinationOwner = handleOwner(event.params.destinationOwner);
 
+  let exitInterupted = false;
   planetEntity.numSpaceships = event.params.data.newNumspaceships;
   planetEntity.travelingUpkeep = event.params.data.newTravelingUpkeep;
   planetEntity.overflow = event.params.data.newOverflow;
@@ -309,6 +312,7 @@ export function handleFleetArrived(event: FleetArrived): void {
       planetExitEvent.success = false;
       planetExitEvent.save();
       planetEntity.currentExit = null;
+      exitInterupted = true;
     }
   }
 
@@ -368,6 +372,10 @@ export function handleFleetArrived(event: FleetArrived): void {
   // space.resolving_gas = space.resolving_gas.plus(event.transaction.gasLimit);//gasLimit is not gasUsed
   space.resolving_num = space.resolving_num.plus(ONE);
   space.numFleetsResolved = space.numFleetsResolved.plus(ONE);
+  if (exitInterupted) {
+    space.currentStakeMinusExiting = space.currentStakeMinusExiting.plus(planetEntity.stakeDeposited);
+    space.numPlanetsStakedMinusExiting = space.numPlanetsStakedMinusExiting.plus(ONE);
+  }
   space.save();
 }
 
@@ -506,8 +514,8 @@ export function handleExit(event: PlanetExit): void {
   // space.exit_attempt_gas = space.exit_attempt_gas.plus(event.transaction.gasLimit);//gasLimit is not gasUsed
   space.exit_attempt_num = space.exit_attempt_num.plus(ONE);
   space.numPlanetsWithExit = space.numPlanetsWithExit.plus(ONE);
-  space.currentStake = space.currentStake.minus(planetEntity.stakeDeposited);
-  space.numPlanetsStaked = space.numPlanetsStaked.minus(ONE);
+  space.currentStakeMinusExiting = space.currentStakeMinusExiting.minus(planetEntity.stakeDeposited);
+  space.numPlanetsStakedMinusExiting = space.numPlanetsStakedMinusExiting.minus(ONE);
   space.save();
 }
 
